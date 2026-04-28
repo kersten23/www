@@ -1,119 +1,225 @@
+/* =========================================
+   Tech & Sports Car HUD Dashboard Theme
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+TC:wght@300;500;700&display=swap');
+
+/* 全局基底：深淵黑與金屬灰的漸層 */
 body {
-    background: #f5e6ca; /* 柔和的米黃色背景 */
-    color: #333; /* 深灰色文字 */
-    font-family: 'Noto Sans TC', Arial, sans-serif;
+    background-color: #0b0c10;
+    background-image: radial-gradient(circle at 50% -20%, #1f2833 0%, #0b0c10 80%);
+    color: #c5c6c7;
+    font-family: 'Noto Sans TC', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 20px;
     margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-.date-time {
-    font-size: 18px;
-    font-weight: bold;
+/* =========================================
+   頂部數位時鐘 (超跑儀表板風格)
+   ========================================= */
+#digital-clock {
+    font-family: 'Orbitron', sans-serif;
+    /* 充滿科技感的英文字體 */
+    font-size: 36px;
+    font-weight: 700;
+    color: #66fcf1;
+    /* 冰冷科技藍 */
+    background: rgba(11, 12, 16, 0.7);
+    padding: 10px 40px;
+    border: 1px solid rgba(102, 252, 241, 0.3);
+    border-radius: 4px;
+    /* 捨棄大圓角，改用銳利邊緣 */
+    display: inline-block;
+    box-shadow: 0 0 20px rgba(102, 252, 241, 0.15),
+        inset 0 0 10px rgba(102, 252, 241, 0.1);
+    text-shadow: 0 0 8px rgba(102, 252, 241, 0.6);
     position: absolute;
-    top: 10px;
+    top: 25px;
     left: 50%;
     transform: translateX(-50%);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    letter-spacing: 2px;
 }
 
-#digital-clock {
-    font-size: 32px;
-    font-weight: bold;
-    color: darkorange;
-    background: #fff8e7;
-    padding: 12px 20px;
-    border-radius: 10px;
-    display: inline-block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    text-align: center;
-    position: absolute;
-    top: 10px;
-    left:  50%;
-    transform: translateX(-50%);
-}
-
-/* 主區塊排版 */
+/* =========================================
+   主區塊排版：CSS Grid 
+   ========================================= */
 .layout-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    margin-top: 80px;
-    flex-wrap: wrap; /* 手機或窄版自動換行 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 110px;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* 每一欄位（分類區塊） */
+/* =========================================
+   每一欄位（分類區塊 - 毛玻璃金屬質感）
+   ========================================= */
 .column {
-    flex: 1 1 250px; /* 每個最小 250px，彈性縮放 */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 25px 20px ;
-    background: #fff8e7;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease; box-sizing: 0.25s ease;
+    padding: 30px 25px;
+    background: rgba(31, 40, 51, 0.4);
+    /* 半透明鐵灰 */
+    backdrop-filter: blur(12px);
+    /* 背景模糊化 */
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 2px solid #1f2833;
+    border-right: 2px solid #1f2833;
+    border-radius: 8px;
+    /* 俐落的微圓角 */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+
+    /* 開機動畫載入設定 */
+    opacity: 0;
+    animation: systemBoot 0.8s ease-out forwards;
+}
+
+/* 讓不同卡片有順序地亮起 */
+.column:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.column:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.column:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.column:nth-child(4) {
+    animation-delay: 0.4s;
 }
 
 .column:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-10px);
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.9),
+        0 0 20px rgba(102, 252, 241, 0.05);
+    /* 懸浮時邊緣微透藍光 */
 }
 
-/* 標題樣式 */
+/* =========================================
+   標題樣式 (儀表板標籤)
+   ========================================= */
 .column h2 {
     margin-top: 0;
-    color: #e67e22;
-    font-size: 1.6rem;
-    border-bottom: 2px solid #f4ca74;
-    padding-bottom: 5px;
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
     position: relative;
 }
 
-.column h2::before {
-    content: "🧰"; 
+/* 標題下方的雷射裝飾線 */
+.column h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #45a29e;
+    /* 點綴色 */
+    box-shadow: 0 0 10px #66fcf1;
 }
 
-/*設定各分類的icon*/
-#left-column h2::before {content: "🧰";}      /* 小工具 */
-#center-column h2::before {content: "🗄️";}     /* 資料庫 */
-#righr-column h2::before {content: "🖥️";}      /* 程式小工具 */
-.column:last-of-type h2::before {content:"📋";}     /* 各種表單 */
-
-/* 連結區塊（按鈕樣式） */
+/* =========================================
+   連結區塊（按鈕樣式）
+   ========================================= */
 .links-container {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 16px;
 }
 
-/* 按鈕風格的超連結 */
+/* 按鈕風格 (實體按鍵感) */
 .links-container a {
-    display: block;
-    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c5c6c7;
     text-decoration: none;
-    padding: 12px 24px;
-    background: linear-gradient(135deg,#ffa726, #fb8c00);
-    border-radius: 12px;
-    transition: background 0.2s ease, transform 0.1s ease,box-shadow 0.2s ease;
-    font-size: 1rem;
-    line-height: 1.4;
-    width: 100%;
-    max-width: 200px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    padding: 14px 12px;
+    background: linear-gradient(145deg, #181a20, #0d0e12);
+    /* 按鈕立體黑 */
+    border: 1px solid #1f2833;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6),
+        -2px -2px 8px rgba(255, 255, 255, 0.03);
+    /* 擬態立體陰影 */
+    word-break: break-word;
+    position: relative;
+    overflow: hidden;
 }
 
+/* 懸浮發光效果 (啟動引擎感) */
 .links-container a:hover {
-    background: linear-gradient(135deg,#ff9800, #f57c00);
+    color: #ffffff;
+    border-color: #45a29e;
+    background: linear-gradient(145deg, #1f2833, #151b22);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(102, 252, 241, 0.2),
+        inset 0 0 8px rgba(102, 252, 241, 0.1);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 768px) {
-    .layout-container{
-        grid-template-columns: 1fr;
-    }    
-    .column{
-        width: 90%;
+/* 按鈕左側的科技裝飾條 */
+.links-container a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: #66fcf1;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom;
+}
+
+.links-container a:hover::before {
+    transform: scaleY(1);
+    box-shadow: 2px 0 10px #66fcf1;
+}
+
+.links-container a:active {
+    transform: translateY(1px);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================================
+   開機啟動動畫 (System Boot)
+   ========================================= */
+@keyframes systemBoot {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        filter: brightness(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: brightness(1);
     }
 }
