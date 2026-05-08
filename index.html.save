@@ -26,7 +26,7 @@
         <div class="column" id="center-column">
             <h2>資料庫</h2>
             <div class="links-container">
-                <a href="https://redmine.unieat.com.tw/bissue.php" target="_blank">數據查看網頁</a>
+                <a href="https://www.uisco.com.tw/81/" target="_blank">出勤查詢</a>
                 <a href="https://aws-test.dudooeat.com/am.php?server=db-g01r01.dudooeat.com&username=crm_kersten&db=information_schema&table=PROCESSLIST" target="_blank">正式站</a>
                 <a href="https://aws-test.dudooeat.com/am.php?server=db-test.dudooeat.com&username=crm_kersten" target="_blank">測試站 </a>
 				<a href="https://pos-api-dev.dudooeat.com/doc/#api-Admin_Items-getCategoryItemList" target="_blank">API規格文件</a>
