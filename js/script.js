@@ -1,16 +1,12 @@
 // 1. 定義你的資料庫（未來要新增按鈕或分類，只改這裡！）
 const dashboardData = [
     {
-        title: "小工具",
+        title: "漢唐內部網頁",
         icon: "🧰",
         links: [
-            { name: "發票小工具", url: "https://aws-test.dudooeat.com/tools/prod/inv.php" },
-            { name: "第三方串接LOG", url: "https://aws-test.dudooeat.com/tools/test/logs.php" },
-            { name: "退款小工具", url: "https://aws-test.dudooeat.com/tools/prod/refund.php" },
-            { name: "清除停售小工具", url: "http://aws-test.dudooeat.com/tools/test/item_disabled.php" },
-            { name: "財政部發票查詢", url: "https://www.einvoice.nat.gov.tw/portal/btc/audit/btc601w/search" },
-            { name: "待開發恢復菜單小工具", url: "#" },
-            { name: "二代POS設計SPEC", url: "https://docs.google.com/document/d/19npoNSmlK4e6aLQCf_T8gp3i7lQQB9qrlGKVxAj74h4/edit?tab=t.0#heading=h.avun1alw4yoc" }
+            { name: "加班申請", url: "https://uisco.com.tw/83" },
+            { name: "出勤查詢", url: "https://uisco.com.tw/81" },
+            { name: "漢唐Mail", url: "待輸入" }
         ]
     },
     {
@@ -42,7 +38,7 @@ const dashboardData = [
         title: "各種表單",
         icon: "📋",
         links: [
-            { name: "客服班表", url: "https://docs.google.com/spreadsheets/d/1892rTaL9sGVeJozmEvEuegMa608vVdD35bVB5Vvz5M0/edit?gid=910643497#gid=910643497" },
+            { name: "IPhoto", url: "https://pcm.tsmc.com/iPhoto/Login/Index" },
             { name: "肚肚後台正式站", url: "https://sales.dudooeat.com/dudoo/console" },
             { name: "肚肚後台測試站", url: "https://sales-test.dudooeat.com/dudoo/dudooLogin" },
             { name: "肚肚後台開發站", url: "https://sales-dev.dudooeat.com/dudoo/dudooLogin" },
