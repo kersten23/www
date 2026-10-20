@@ -4,8 +4,8 @@ const dashboardData = [
         title: "漢唐內部網頁",
         icon: "🧰",
         links: [
-            { name: "加班申請", url: "https://uisco.com.tw/83" },
-            { name: "出勤查詢", url: "https://uisco.com.tw/81" },
+            { name: "加班申請", url: "www.uisco.com.tw/83" },
+            { name: "出勤查詢", url: "www.uisco.com.tw/81" },
             { name: "漢唐Mail", url: "待輸入" }
         ]
     },
